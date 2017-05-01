@@ -6,19 +6,26 @@
 
 (in order of implimantation in final Jupyter notebook file)
   
-  a. Including left and right camera images with a steering correction factor.
+  #### a. Including left and right camera images with a steering correction factor.
   
 In order to help the car stay in the middle of the road and to recover when it aproached the lane lines or edges, it was nessesary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
-  b. Resizing Images
+  #### b. Resizing Images
   
-     The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
+The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
   
-  c. Augmenting with Flipped Images
+  #### c. Augmenting with Flipped Images
   
-  d. Normalizing 
+After viewing a histogram of the dispersion of steering angles in the training set, it was apparent that the car spent more time turing left that turning right. To fix this skew and to supply additonal data cheaply, all images were flipped horizontally. The corresponding steering measurements were likewise multipled by negative one.
   
-  e. Image Cropping
+  #### d. Normalizing 
+  
+Within the Keras model, all image pixel values were normalized from a range of [0,255] to [-0.5,0.5]. This is generally good practice with neural networks and was seen to improve convergence on a good model.   
+  
+  #### e. Image Cropping
+  
+Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hod of the car. 
+  
   
 (Include Images)
 
@@ -61,28 +68,29 @@ Output Layer - 1 Neuron
 ## Training Approach
 (Reference Behavioral Cloning Project Log.pdf. File included in repository.)
 1. Overview
-
+(include data capture attempts)
+(include saving model after each epoch and using checkpoints)
 2. Detailed Account
 
-Rev 1-
+#### Rev 1-
 
-Rev 2-
+#### Rev 2-
 
-Rev 3-
+#### Rev 3-
 
-Rev 4-
+#### Rev 4-
 
-Rev 5-
+#### Rev 5-
 
-Rev 6-
+#### Rev 6-
 
-Rev 7-
+#### Rev 7-
 
-Rev 8-
+#### Rev 8-
 
-Rev 9-
+#### Rev 9-
 
-Rev 10-
+#### Rev 10-
 
 ## Conclusions
 
