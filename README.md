@@ -1,8 +1,8 @@
-# Behavioral-Cloning-Project
-Behavioral Cloning Project
-Project Information
+### Behavioral Cloning Project
 
-Final Model
+## Project Information
+
+# Final Model
 1. Data Processing 
 (in order of implimantation in final Jupyter notebook file)
   a. Including left and right camera images with a steering correction factor.
