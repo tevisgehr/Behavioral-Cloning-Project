@@ -1,10 +1,11 @@
-### Behavioral Cloning Project
+# Behavioral Cloning Project
+### Project Information
 
-## Project Information
+## Final Model
+### 1. Data Processing 
 
-# Final Model
-1. Data Processing 
 (in order of implimantation in final Jupyter notebook file)
+  
   a. Including left and right camera images with a steering correction factor.
   
   b. Resizing Images
@@ -17,7 +18,7 @@
   
 (Include Images)
 
-2. Model Architecture
+### 2. Model Architecture
 The following architecture was implimented in Keras:
 
 2D Convolutional Layer - 5x5, stride of 1. Depth of 24.
@@ -53,7 +54,7 @@ Output Layer - 1 Neuron
 (Include Images?)
 
 
-Training Approach
+## Training Approach
 (Reference Behavioral Cloning Project Log.pdf. File included in repository.)
 1. Overview
 
@@ -78,6 +79,6 @@ Rev 9-
 
 Rev 10-
 
-Conclusions
+## Conclusions
 
 
