@@ -21,19 +21,33 @@ Final Model
 The following architecture was implimented in Keras:
 
 2D Convolutional Layer - 5x5, stride of 1. Depth of 24.
+
 Activation - Relu
+
 Subsampling - 2x2
+
 2D Convolutional Layer - 5x5, stride of 1. Depth of 36.
+
 Subsampling - 2x2
+
 Activation - Relu
+
 2D Convolutional Layer - 5x5, stride of 1. Depth of 48.
+
 Subsampling - 2x2
+
 Activation - Relu
+
 2D Convolutional Layer - 3x3, stride of 1. Depth of 64.
+
 Activation - Relu
+
 Fully Connected Layer - 100 Neurons
+
 Fully Connected Layer - 50 Neurons
+
 Fully Connected Layer - 10 Neurons
+
 Output Layer - 1 Neuron
 
 (Include Images?)
@@ -45,14 +59,23 @@ Training Approach
 
 2. Detailed Account
 Rev 1-
+
 Rev 2-
+
 Rev 3-
+
 Rev 4-
+
 Rev 5-
+
 Rev 6-
+
 Rev 7-
+
 Rev 8-
+
 Rev 9-
+
 Rev 10-
 
 Conclusions
