@@ -89,15 +89,17 @@ Implimented a very simple fully conected network to see is I could get the car t
 Due to the high number of zeros in the Udacity training set steering angles, I collected my own data with a mouse. I was unable to get any improvements from using my own data and eventually went back to the Udacity dataset.
 
 #### Rev 3-
-I fully implimented the suggested pipeline from the project videos, starting with the Lenet architecture and eventually switching to the NVIDIA architecture. 
+I fully implimented the suggested pipeline from the project videos, starting with the Lenet architecture and eventually switching to the NVIDIA architecture. I also tried downsampling the number of records with a steering angle of zero by randomly dropping a percentage of the zero-angle images before training the network. This approach was made unnessesary later when I started using the data from all 3 cameras.
 
 #### Rev 4-
 Made various changes to the NVIDIA architecture including adding or subtracting layers, changing the number of neurons in various layer, adding dropout, using various batch sizes, and training for various numbers of epochs. 
 
 #### Rev 5-
-I played around with performing Canny transforms on the training images. I was able to train a model that performed reasonably well on Canny-transformed images, but I ended up abandoning the idea in favor of implimenting a variety of other data processing techniques (as described above).
+I played around with performing Canny transforms on the training images. Performing variation on Canny transform parameters including thresholds and Gaussian blur kernels, I was able to train a model that performed reasonably well on Canny-transformed images. I also had to modify the code within drive.py in order to transform the new images gatered by the car as it was driving (this code has been left in the drive.py file for recerence, commented out). I ended up abandoning the idea in favor of implimenting a variety of other data processing techniques (as described above).
 
 #### Rev 6-
+Started using the Keras ModelCheckpoint() class to make models at every epoch and to allow for model loading and retraining. This greatly sped up the training precess, as described above. 
+
 
 #### Rev 7-
 
