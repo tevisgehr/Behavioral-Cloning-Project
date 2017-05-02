@@ -67,12 +67,24 @@ Output Layer - 1 Neuron
 
 ## Training Approach
 (Reference Behavioral Cloning Project Log.pdf. File included in repository.)
-1. Overview
+### 1. Overview
+
+The process of refining this model in order to obtain the required performance was very iterative. Early on it became clear that it would be nessesary to use a systematic approach and to carefully document all changes to various revisions of the model. I went through 11 major revisions in order to find a model that could make it all the way around the track without ever hitting the edge. Although I tried, I was unable to create a model that prevents the car from ever crossing a lane line. In my final model (a version of Rev 9 as descibed below), the car touches the lanes lines in approximatly two places along the track and comes very close to touching the edge of the track in one place (see the video1.mp4).
+
+I used an alternating approach of trying various network architectures based off of the NVIDIA architecture, interspresed with implimenting various data processing and augmentation tecniques. When an (subjective) improvment was realized, I would use the most recent appraoch as a starting point for a new set of attempts. In the end it seemed that the NVIDIA arcitecture was too large for 64x64 images. The final model was nearly identical to the NVIDIA architecture, minus the final 64-depth convolutional layer. 
+
+I ran several sessions of recording my own data. The first contained about as many samples as the original Udacity dataset, and the second was much larger. I was unable to every get better results from using my own data than I was from using the Udacity dataset on an equivalent network architecture. I eventually also tried appending all of my generated data onto the end of the Udacity dataset, under the hope that 'more data is always better'. this approach led to a reasonably good model (one of the best actually), but in the end the final model was created using only the Udacity dataset. 
+
+One of the most important techniques that enabled convergence on an acceptable model was the use of rapid protoyping. I tried to find ways to quickly produce a lot of models so that testing (simulated driving) could run almost continuosly. Because on one model could be tested at a time, I tried to make sure that this was the only bottleneck of the system. In order to do this I implimented the image resizing (as descibed above). I also inplimented a checkpoint system within Keras that saves a new model after every epoch and allows for a previously tested model to be loaded and further trained. I also included graphs of training and validation loss that allows for a visualiztion of the training process of each architecture from epoch to epoch. Lastly I allowed mutiple models to be training at the same time, one on an AWS instance, and another on my local machine. The system required constant vigilance, but created virtually no down-time wating for models to train. All of this allowed me to rapidly produce and test several hundred models over the course of 3 days, before I decided to select my best attempt and call it quits.
+
 (include data capture attempts)
 (include saving model after each epoch and using checkpoints)
-2. Detailed Account
+### 2. Detailed Account
+
+Each of these revisions had multpile sub-revisons that can be seen seen in this repository and are descibed in detail in the log pdf file. 
 
 #### Rev 1-
+Implimented a very simple fully conected network to see is I could get the car to run off of the model.  
 
 #### Rev 2-
 
@@ -91,6 +103,8 @@ Output Layer - 1 Neuron
 #### Rev 9-
 
 #### Rev 10-
+
+#### Rev 11-
 
 ## Conclusions
 
