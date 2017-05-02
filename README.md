@@ -98,12 +98,15 @@ Made various changes to the NVIDIA architecture including adding or subtracting 
 I played around with performing Canny transforms on the training images. Performing variation on Canny transform parameters including thresholds and Gaussian blur kernels, I was able to train a model that performed reasonably well on Canny-transformed images. I also had to modify the code within drive.py in order to transform the new images gatered by the car as it was driving (this code has been left in the drive.py file for recerence, commented out). I ended up abandoning the idea in favor of implimenting a variety of other data processing techniques (as described above).
 
 #### Rev 6-
-Started using the Keras ModelCheckpoint() class to make models at every epoch and to allow for model loading and retraining. This greatly sped up the training precess, as described above. 
+Started using the Keras ModelCheckpoint() class to make models at every epoch and to allow for model loading and retraining. This greatly sped up the training precess, as described above. Started seeing better performance in some of the models.
 
 
 #### Rev 7-
+Decided to make another attempt at creating my own data. I recorded numerous laps around the track in both directions and tried to drive very smoothly. My dataset was about twice the size of the Udacity dataset. Although the data seemed good, I was unable to get any improvement in performance.
 
 #### Rev 8-
+Implimented a resizing of the training images to 64x64x3. This drastically improved both training time and model performance. I tried out a variety of arcitectures on the new image size and ended up dropping off the last convolutional layer from the NVIDIA architecture. This is when my car first managed to go all the way around the track, with some instances of rolling over curbs. 
+
 
 #### Rev 9-
 
