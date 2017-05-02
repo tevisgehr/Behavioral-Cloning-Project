@@ -65,7 +65,7 @@ Output Layer - 1 Neuron
 
 
 ## Training Approach
-(Reference Behavioral Cloning Project Log.pdf. File included in repository.)
+(Reference "Behavioral Cloning Project Log.pdf". File included in repository.)
 ### 1. Overview
 
 The process of refining this model in order to obtain the required performance was very iterative. Early on it became clear that it would be nessesary to use a systematic approach and to carefully document all changes to various revisions of the model. I went through 11 major revisions in order to find a model that could make it all the way around the track without ever hitting the edge. Although I tried, I was unable to create a model that prevents the car from ever crossing a lane line. In my final model (a version of Rev 9 as descibed below), the car touches the lanes lines in approximatly two places along the track and comes very close to touching the edge of the track in one place (see the video1.mp4).
@@ -83,15 +83,19 @@ One of the most important techniques that enabled convergence on an acceptable m
 Each of these revisions had multpile sub-revisons that can be seen seen in this repository and are descibed in detail in the log pdf file. 
 
 #### Rev 1-
-Implimented a very simple fully conected network to see is I could get the car to run off of the model.  
+Implimented a very simple fully conected network to see is I could get the car to run off of the model. Then I tried a simple convolutional network and was quickly able to produce a model that would drive the car reasonably well up until at least the first sharp turn.    
 
 #### Rev 2-
+Due to the high number of zeros in the Udacity training set steering angles, I collected my own data with a mouse. I was unable to get any improvements from using my own data and eventually went back to the Udacity dataset.
 
 #### Rev 3-
+I fully implimented the suggested pipeline from the project videos, starting with the Lenet architecture and eventually switching to the NVIDIA architecture. 
 
 #### Rev 4-
+Made various changes to the NVIDIA architecture including adding or subtracting layers, changing the number of neurons in various layer, adding dropout, using various batch sizes, and training for various numbers of epochs. 
 
 #### Rev 5-
+I played around with performing Canny transforms on the training images. I was able to train a model that performed reasonably well on Canny-transformed images, but I ended up abandoning the idea in favor of implimenting a variety of other data processing techniques (as described above).
 
 #### Rev 6-
 
