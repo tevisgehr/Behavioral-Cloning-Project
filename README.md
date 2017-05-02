@@ -1,5 +1,4 @@
 # Behavioral Cloning Project
-### Project Information
 
 ## Final Model
 ### 1. Data Processing 
