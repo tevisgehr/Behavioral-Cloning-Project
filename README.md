@@ -23,10 +23,8 @@ Within the Keras model, all image pixel values were normalized from a range of [
   
   #### e. Image Cropping
   
-Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hod of the car. 
-  
-  
-(Include Images)
+Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hood of the car. 
+
 
 ### 2. Model Architecture
 The following architecture was implimented in Keras:
@@ -80,7 +78,7 @@ One of the most important techniques that enabled convergence on an acceptable m
 (include saving model after each epoch and using checkpoints)
 ### 2. Detailed Account
 
-Each of these revisions had multpile sub-revisons that can be seen seen in this repository and are descibed in detail in the log pdf file. 
+Each of these revisions had multpile sub-revisons that can be seen seen in this repository and are descibed in detail in the log file pdf. 
 
 #### Rev 1-
 Implimented a very simple fully conected network to see is I could get the car to run off of the model. Then I tried a simple convolutional network and was quickly able to produce a model that would drive the car reasonably well up until at least the first sharp turn.    
@@ -109,11 +107,18 @@ Implimented a resizing of the training images to 64x64x3. This drastically impro
 
 
 #### Rev 9-
+Started using the data from all three cameras, with various correction factors. This showed immidiate improvments in performance. Within a few sub-revisions I was able to create a model that completed the requirements of the project. This is the model that has been submitted. Because the final model still rolls over the painted lines in a couple of places along the track, I kept trying to get better performance in Rev 10 and Rev 11, but was unable to ever do any better.  
 
 #### Rev 10-
+Tried appending my collected data to the Udacity data to have one massive dataset with about 120k samples. No improvment.
+
 
 #### Rev 11-
+Tried using a Relu activation function on my fully conected layers (which was not present in any of the previous revisons). No improvement.
 
 ## Conclusions
+The most significant finding of this project was the demonstation of the need for a systematic approach to network development and model training. It seems that there is a requirement for a balance between intuitive inspiration and diciplined iteration. While traring models I often had a string of ideas pop into my head all at the same time, and was unable to test them, all at one. It was important to document these ideas as they came up and aslo to document the results of each test. Also it was crucial to resist the urge to make multiple changes at the same time. 
+
+One of the greatest challenges was trying to determine whether a particular model was underfit or overfit. Small changes a single parameter or a difference of a single training epoch could result in drastic changes in driving performance. It is difficult to guess whether a similar model would be able to generalize to other situations, or if one would have to make significant changes. For the time being, it appears that much of the process of behavioral cloning through deep neural networks is a matter of trial and error.
 
 
