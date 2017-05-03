@@ -3,8 +3,8 @@
 [image1]: ./Model_Arcitecture "Model Architecture"
 [image2]: ./placeholder.png "Grayscaling"
 [image3]: ./h-channel.png "H-Channel"
-[image4]: ./s-channel.png "S-Channel""
-[image5]: ./v-channel.png "V-Channel""
+[image4]: ./s-channel.png "S-Channel"
+[image5]: ./v-channel.png "V-Channel"
 [image6]: ./hist1.png "Steering Angle Distribution"
 [image7]: ./hist2.png "After Flipping"
 # Behavioral Cloning Project
@@ -42,7 +42,7 @@ Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid o
 ### 2. Model Architecture
 The following architecture was implemented in Keras:
 
-
+[image1]
 
 
 ## Training Approach
