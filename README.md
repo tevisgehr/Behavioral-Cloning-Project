@@ -9,19 +9,23 @@
   
 In order to help the car stay in the middle of the road and to recover when it approached the lane lines or edges, it was necessary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
-  #### b. Resizing Images
+  #### b. BGR2HSV Colorspace mapping
+  
+Performed a colorspace mapping using cv2.cvtColor library. Only used the saturation 's' channel. This gets rid of a lot of the noise that is inherent in a BGR colorspace. 
+
+  #### c. Resizing Images
   
 The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
   
-  #### c. Augmenting with Flipped Images
+  #### d. Augmenting with Flipped Images
   
 After viewing a histogram of the dispersion of steering angles in the training set, it was apparent that the car spent more time turning left that turning right. To fix this skew and to supply additional data cheaply, all images were flipped horizontally. The corresponding steering measurements were likewise multiplied by -1.
   
-  #### d. Normalizing 
+  #### e. Normalizing 
   
 Within the Keras model, all image pixel values were normalized from a range of [0,255] to [-0.5,0.5]. This is generally good practice with neural networks and was seen to improve convergence on a good model.   
   
-  #### e. Image Cropping
+  #### f. Image Cropping
   
 Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hood of the car. 
 
@@ -29,37 +33,7 @@ Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid o
 ### 2. Model Architecture
 The following architecture was implemented in Keras:
 
-2D Convolutional Layer - 5x5, stride of 1. Depth of 24.
 
-Activation - Relu
-
-Subsampling - 2x2
-
-2D Convolutional Layer - 5x5, stride of 1. Depth of 36.
-
-Subsampling - 2x2
-
-Activation - Relu
-
-2D Convolutional Layer - 5x5, stride of 1. Depth of 48.
-
-Subsampling - 2x2
-
-Activation - Relu
-
-2D Convolutional Layer - 3x3, stride of 1. Depth of 64.
-
-Activation - Relu
-
-Fully Connected Layer - 100 Neurons
-
-Fully Connected Layer - 50 Neurons
-
-Fully Connected Layer - 10 Neurons
-
-Output Layer - 1 Neuron
-
-(Include Images?)
 
 
 ## Training Approach
