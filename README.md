@@ -33,10 +33,10 @@ After viewing a histogram of the dispersion of steering angles in the training s
 ![alt text][image7]  
 Figure 2:Flipped versions of the same image.
   
-  #### e. Normalizing  
+#### e. Normalizing  
 Within the Keras model, all image pixel values were normalized from a range of [0,255] to [-0.5,0.5]. This is generally good practice with neural networks and was seen to improve convergence on a good model.   
   
-  #### f. Image Cropping  
+#### f. Image Cropping  
 Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hood of the car. 
 
 
