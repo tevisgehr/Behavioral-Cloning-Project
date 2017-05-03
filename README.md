@@ -21,6 +21,10 @@ In order to help the car stay in the middle of the road and to recover when it a
   #### b. BGR2HSV Colorspace mapping
   
 Performed a colorspace mapping using cv2.cvtColor library. Only used the saturation 's' channel. This gets rid of a lot of the noise that is inherent in a BGR colorspace. 
+![alt text][image3]
+![alt text][image4]
+![alt text][image5]
+
 
   #### c. Resizing Images
   
@@ -29,6 +33,8 @@ The images were resized from 164x320x3 to 64x64x3. Not only did this improve per
   #### d. Augmenting with Flipped Images
   
 After viewing a histogram of the dispersion of steering angles in the training set, it was apparent that the car spent more time turning left that turning right. To fix this skew and to supply additional data cheaply, all images were flipped horizontally. The corresponding steering measurements were likewise multiplied by -1.
+![alt text][image6]
+![alt text][image7]
   
   #### e. Normalizing 
   
@@ -44,12 +50,6 @@ The following architecture was implemented in Keras:
 
 ![alt text][image1]
 ![alt text][image2]
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-![alt text][image6]
-![alt text][image7]
-
 
 ## Training Approach
 (Reference "Behavioral Cloning Project Log.pdf". File included in repository.)
