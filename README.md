@@ -10,48 +10,44 @@
 # Behavioral Cloning Project
 
 ## Final Model
-### 1. Data Processing 
-
+### 1. Data Processing  
 (in order of implementation in final Jupyter notebook file)
   
-  #### a. Including left and right camera images with a steering correction factor.
-  
+  #### a. Including left and right camera images with a steering correction factor  
 In order to help the car stay in the middle of the road and to recover when it approached the lane lines or edges, it was necessary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
-  #### b. BGR2HSV Colorspace mapping
-  
+  #### b. BGR2HSV Colorspace mapping  
 Performed a colorspace mapping using cv2.cvtColor library. Only used the saturation 's' channel. This gets rid of a lot of the noise that is inherent in a BGR colorspace. 
+
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
 
 
-  #### c. Resizing Images
-  
+  #### c. Resizing Images  
 The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
   
-  #### d. Augmenting with Flipped Images
-  
+  #### d. Augmenting with Flipped Images  
 After viewing a histogram of the dispersion of steering angles in the training set, it was apparent that the car spent more time turning left that turning right. To fix this skew and to supply additional data cheaply, all images were flipped horizontally. The corresponding steering measurements were likewise multiplied by -1.
+
 ![alt text][image6]
-![alt text][image7]
+![alt text][image7]  
+Figures 1 and 2:
   
-  #### e. Normalizing 
-  
+  #### e. Normalizing  
 Within the Keras model, all image pixel values were normalized from a range of [0,255] to [-0.5,0.5]. This is generally good practice with neural networks and was seen to improve convergence on a good model.   
   
-  #### f. Image Cropping
-  
+  #### f. Image Cropping  
 Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid of image data above the horizon. Also the bottom 10 rows were cropped out to remove the hood of the car. 
 
 
-### 2. Model Architecture
+### 2. Model Architecture  
 The following architecture was implemented in Keras:
 
 ![alt text][image1]
 ![alt text][image2]
 
-## Training Approach
+## Training Approach  
 (Reference "Behavioral Cloning Project Log.pdf". File included in repository.)
 ### 1. Overview
 
