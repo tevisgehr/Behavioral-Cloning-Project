@@ -1,7 +1,6 @@
 [//]: # (Image References)
 
 [image1]: ./Model_Arcitecture.png "Model Architecture"
-[image2]: ./placeholder.png "Grayscaling"
 [image3]: ./h-channel.png "H-Channel"
 [image4]: ./s-channel.png "S-Channel"
 [image5]: ./v-channel.png "V-Channel"
@@ -16,23 +15,23 @@
 #### a. Including left and right camera images with a steering correction factor
 In order to help the car stay in the middle of the road and to recover when it approached the lane lines or edges, it was necessary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
-  #### b. BGR2HSV Colorspace mapping  
+#### b. BGR2HSV Colorspace mapping  
 Performed a colorspace mapping using cv2.cvtColor library. Only used the saturation 's' channel. This gets rid of a lot of the noise that is inherent in a BGR colorspace. 
 
 ![alt text][image3]
 ![alt text][image4]
-![alt text][image5]
+![alt text][image5]  
+Figure 1:H, S, and V Channels respectively.
 
-
-  ####c. Resizing Images  
+#### c. Resizing Images  
 The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
   
-  #### d. Augmenting with Flipped Images  
+#### d. Augmenting with Flipped Images  
 After viewing a histogram of the dispersion of steering angles in the training set, it was apparent that the car spent more time turning left that turning right. To fix this skew and to supply additional data cheaply, all images were flipped horizontally. The corresponding steering measurements were likewise multiplied by -1.
 
 ![alt text][image6]
 ![alt text][image7]  
-Figures 1 and 2:
+Figure 2:Flipped versions of the same image.
   
   #### e. Normalizing  
 Within the Keras model, all image pixel values were normalized from a range of [0,255] to [-0.5,0.5]. This is generally good practice with neural networks and was seen to improve convergence on a good model.   
@@ -45,13 +44,12 @@ Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid o
 The following architecture was implemented in Keras:
 
 ![alt text][image1]
-![alt text][image2]
 
 ## Training Approach  
 (Reference "Behavioral Cloning Project Log.pdf". File included in repository.)
 ### 1. Overview
 
-The process of refining this model in order to obtain the required performance was very iterative. Early on it became clear that it would be necessary to use a systematic approach and to carefully document all changes to various revisions of the model. I went through 11 major revisions in order to find a model that could make it all the way around the track without ever hitting the edge. Although I tried, I was unable to create a model that prevents the car from ever crossing a lane line. In my final model (a version of Rev 9 as described below), the car touches the lanes lines in approximately two places along the track and comes very close to touching the edge of the track in one place (see the video1.mp4).
+The process of refining this model in order to obtain the required performance was very iterative. Early on it became clear that it would be necessary to use a systematic approach and to carefully document all changes to various revisions of the model. I went through 13 major revisions in order to find a model that could make it all the way around the track without ever hitting the edge. In my final model the car never touches the lanes lines (see the video2.mp4).
 
 I used an alternating approach of trying various network architectures based off of the NVIDIA architecture, interspersed with implementing various data processing and augmentation techniques. When an (subjective) improvement was realized, I would use the most recent approach as a starting point for a new set of attempts. In the end it seemed that the NVIDIA architecture was too large for 64x64 images. The final model was nearly identical to the NVIDIA architecture, minus the final 64-depth convolutional layer. 
 
@@ -92,7 +90,7 @@ Implemented a resizing of the training images to 64x64x3. This drastically impro
 
 
 #### Rev 9-
-Started using the data from all three cameras, with various correction factors. This showed immediate improvements in performance. Within a few sub-revisions I was able to create a model that completed the requirements of the project. This is the model that has been submitted. Because the final model still rolls over the painted lines in a couple of places along the track, I kept trying to get better performance in Rev 10 and Rev 11, but was unable to ever do any better.  
+Started using the data from all three cameras, with various correction factors. This showed immediate improvements in performance. Within a few sub-revisions I was able to create a model that completed the requirements of the project. This is the model that was first submitted. Because the model still rolls over the painted lines in a couple of places along the track, I kept trying to get better performance in Revs 10-13. 
 
 #### Rev 10-
 Tried appending my collected data to the Udacity data to have one massive dataset with about 120k samples. No improvement.
@@ -100,6 +98,12 @@ Tried appending my collected data to the Udacity data to have one massive datase
 
 #### Rev 11-
 Tried using a Relu activation function on my fully-connected layers (which was not present in any of the previous revisions). No improvement.
+
+#### Rev 12-
+Changed from using the Convolution2d keras class to the Conv2d (it looks like what I was using is an old version. Added model.summary() to keep track of numbers of parameters. Played around with various Conv2d architectures. Saw reasonable performance but no serious improvements.
+
+#### Rev 13-
+Mapped images into HSV colorspace. This was the 'magic bullet' After doing this I was quickly able to obtain a working model with far fewer parameters.
 
 ## Conclusions
 The most significant finding of this project was the demonstration of the need for a systematic approach to network development and model training. It seems that there is a requirement for a balance between intuitive inspiration and disciplined iteration. While training models I often had a string of ideas pop into my head all at the same time, and was unable to test them, all at one. It was important to document these ideas as they came up and also to document the results of each test. Also it was crucial to resist the urge to make multiple changes at the same time. 
