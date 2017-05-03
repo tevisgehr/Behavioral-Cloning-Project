@@ -1,12 +1,12 @@
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./Model_Arcitecture "Model Architecture"
+[image2]: ./placeholder.png "Grayscaling"
+[image3]: ./h-channel.png "H-Channel"
+[image4]: ./s-channel.png "S-Channel""
+[image5]: ./v-channel.png "V-Channel""
+[image6]: ./hist1.png "Steering Angle Distribution"
+[image7]: ./hist2.png "After Flipping"
 # Behavioral Cloning Project
 
 ## Final Model
