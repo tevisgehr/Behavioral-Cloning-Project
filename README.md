@@ -13,7 +13,7 @@
 ### 1. Data Processing  
 (in order of implementation in final Jupyter notebook file)
   
-  #### a. Including left and right camera images with a steering correction factor
+#### a. Including left and right camera images with a steering correction factor
 In order to help the car stay in the middle of the road and to recover when it approached the lane lines or edges, it was necessary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
   #### b. BGR2HSV Colorspace mapping  
