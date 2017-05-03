@@ -43,6 +43,12 @@ Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid o
 The following architecture was implemented in Keras:
 
 ![alt text][image1]
+![alt text][image2]
+![alt text][image3]
+![alt text][image4]
+![alt text][image5]
+![alt text][image6]
+![alt text][image7]
 
 
 ## Training Approach
