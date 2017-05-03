@@ -1,6 +1,6 @@
 [//]: # (Image References)
 
-[image1]: ./Model_Arcitecture "Model Architecture"
+[image1]: ./Model_Arcitecture.png "Model Architecture"
 [image2]: ./placeholder.png "Grayscaling"
 [image3]: ./h-channel.png "H-Channel"
 [image4]: ./s-channel.png "S-Channel"
@@ -42,7 +42,7 @@ Also with the Keras model, the top 25 rows (of 64) were cropped out to get rid o
 ### 2. Model Architecture
 The following architecture was implemented in Keras:
 
-[image2]
+[image1]
 
 
 ## Training Approach
