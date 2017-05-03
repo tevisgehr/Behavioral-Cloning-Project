@@ -17,7 +17,6 @@
 In order to help the car stay in the middle of the road and to recover when it approached the lane lines or edges, it was necessary to use all three camera angles. A correction of 0.3 was added to the side cameras. 
   
   #### b. BGR2HSV Colorspace mapping  
-  
 Performed a colorspace mapping using cv2.cvtColor library. Only used the saturation 's' channel. This gets rid of a lot of the noise that is inherent in a BGR colorspace. 
 
 ![alt text][image3]
@@ -25,7 +24,7 @@ Performed a colorspace mapping using cv2.cvtColor library. Only used the saturat
 ![alt text][image5]
 
 
-  #### c. Resizing Images  
+  ####c. Resizing Images  
 The images were resized from 164x320x3 to 64x64x3. Not only did this improve performance, but it vastly improved training time. 
   
   #### d. Augmenting with Flipped Images  
