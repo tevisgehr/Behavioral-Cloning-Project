@@ -8,6 +8,12 @@
 [image7]: ./hist2.png "After Flipping"
 # Behavioral Cloning Project
 
+The purpose of this project was to teach an agent to drive a simualted car around a track. This was accomplised by using a convolutional neural network on top of several image processing techniques from OpenCV. Multiple combinations of image processing techniques and CNN architectures were attempted until a viable solution was found that was able to successfully clone driving behavior.  
+  
+These approaches are described below and in greater detail in the log pdf file. The processing and CNN code are contained in the Jupyter notebook file. The interface code between the model and the driving program is contained in drive.py.  
+
+This project was a great challenge. Although the final CNN structure is reasonably simple, it took many iterative steps to reach a viable solution.   
+
 ## Final Model
 ### 1. Data Processing  
 (in order of implementation in final Jupyter notebook file)
